@@ -1,13 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Item
-# Create your
-#  views here.
-
-def index(request):
-    template = loader.get_template("index.html")
-    return HttpResponse(template.render())
-
+from ..models import Item
 def criar_item(request):
     if request.method == 'POST':
         form = request.POST
