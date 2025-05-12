@@ -3,7 +3,7 @@ from django.template import loader
 from ..models import Item
 
 
-def deletar(request, id):
+def deletar_item(request, id):
     if request.method == 'DELETE':
         try:
             Item.objects.filter(id=id).delete()
