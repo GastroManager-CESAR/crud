@@ -1,19 +1,17 @@
 from django.http import HttpResponse
 from django.template import loader
 from ..models import Item
-def criar_item(request):
+
+def atualizar_item(request, id):
     if request.method == 'POST':
         form = request.POST
-        
+
         titulo = form['titulo']
         descricao = form['descricao']
         
         try:
-            Item(titulo=titulo, descricao=descricao).save()
+            Item.objects.filter(id=id).update(titulo=titulo, descricao=descricao)
         except:
-            return HttpResponse("Deu erro")
+            return HttpResponse("item não encontrado")
         finally:
-            return HttpResponse("Obrigado por se cadastrar")
-
-    else:
-        return HttpResponse("Inválido")
+            return HttpResponse("Sucesso")
