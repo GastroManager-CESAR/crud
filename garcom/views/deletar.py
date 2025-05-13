@@ -1,11 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
-from ..models import Item
+from ..models import Garcom
 
 def deletar_item(request, id):
     if request.method == 'DELETE': 
         try:
-            Item.objects.filter(id=id).delete()
+            Garcom.objects.filter(id=id).delete()
         except:
             return HttpResponse("Algo deu errado")
         finally:

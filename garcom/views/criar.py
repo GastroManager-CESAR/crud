@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from ..models import Garcom
-def criar_item(request):
+def criar_garcom(request):
     if request.method == 'POST':
         form = request.POST
         
