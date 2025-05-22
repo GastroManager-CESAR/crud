@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from ..models import Item
+from django.shortcuts import redirect
 def criar_item(request):
     if request.method == 'POST':
         form = request.POST
@@ -13,7 +14,8 @@ def criar_item(request):
         except:
             return HttpResponse("Deu erro")
         finally:
-            return HttpResponse("Obrigado por se cadastrar")
+            return redirect("/menu?item_criado=true")
 
-    else:
-        return HttpResponse("Inválido")
+    elif request.method == "GET":
+        template = loader.get_template("criar.html")
+        return HttpResponse(template.render(request=request))
