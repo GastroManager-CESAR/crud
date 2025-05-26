@@ -14,49 +14,51 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">GastroManager</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Garçons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pedidos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cardápio</a>
-          </li>
-        </ul>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">GastroManager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/garcom">Garçons</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pedidos">Pedidos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Cardápio</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <main>
     <div class="hero">
       <h1>Criar Garçom</h1>
     </div>
-    <form method="POST" action="/garcom/criar_garcom" >
+    <form method="POST" action="/garcom/criar_garcom">
       <div class="mb-3">
         <label for="nome_garcom" class="form-label">Nome</label>
-        <input type="text" class="form-control" name="nome_completo" id="nome_garcom">
+        <input required type="text" class="form-control" name="nome_completo" id="nome_garcom">
       </div>
       <div class="mb-3">
         <label for="sexo_garcom" class="form-label">Sexo</label>
-        <input type="text" class="form-control" name="sexo" id="sexo_garcom">
+        <input required type="text" class="form-control" name="sexo" id="sexo_garcom">
       </div>
       <div class="mb-3">
         <label for="data_nascimento_garcom" class="form-label">Data de nascimento</label>
-        <input type="date" class="form-control" name="data_nascimento" id="data_nascimento_garcom">
+        <input required type="date" class="form-control" name="data_nascimento" id="data_nascimento_garcom">
       </div>
       <div class="mb-3">
         <label for="cpf_garcom" class="form-label">CPF</label>
-        <input type="text" class="form-control" name="cpf" id="cpf_garcom">
+        <input required type="text" class="form-control" name="cpf" id="cpf_garcom">
       </div>
       <button type="submit" class="btn btn-primary">Criar Garçom</button>
     </form>

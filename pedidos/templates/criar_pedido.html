@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
     <script src="{% static 'app.js' %}" defer></script>
     <title>GastroManager</title>
 </head>
-
 
 <body>
     <header>
@@ -31,10 +29,10 @@
                             <a class="nav-link active" href="/garcom">Garçons</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pedidos">Pedidos</a>
+                            <a class="nav-link" aria-current="page" href="/pedidos">Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/menu">Cardápio</a>
+                            <a class="nav-link" href="/menu">Cardápio</a>
                         </li>
                     </ul>
                 </div>
@@ -44,18 +42,39 @@
 
     <main>
         <div class="hero">
-            <h1>Item</h1>
+            <h1>Pedidos</h1>
         </div>
-        <form method="POST" action="/menu/criar_item">
+        <form method="POST" action="/pedidos/criar_pedido">
             <div class="mb-3">
-                <label for="nome_item" class="form-label">Nome</label>
-                <input required type="text" name="titulo" class="form-control" id="nome_item">
+                <label for="nome_prato" class="form-label">Prato</label>
+                <select required class="form-select" name="item" id="nome_prato">
+                    {% for item in cardapio %}
+                    <option value="{{item.titulo}}">{{item.titulo}}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="mb-3">
-                <label for="descricao_item" class="form-label">Descrição</label>
-                <input required type="text" name="descricao" class="form-control" id="descricao_item">
+                <label for="descricao_prato" class="form-label">Descrição</label>
+                <input required type="text" class="form-control" id="descricao_prato" name="descricao">
             </div>
-            <button type="submit" class="btn btn-primary">Criar Item</button>
+            <div class="mb-3">
+                <label for="preco" class="form-label">Preço</label>
+                <input required type="number" class="form-control" id="preco" name="preco">
+            </div>
+            <div class="mb-3">
+                <label for="garcom" class="form-label">Garçom</label>
+                <select required class="form-select" name="garcom" id="garcom">
+                    {% for garcom in garcons %}
+                    <option value="{{garcom.nome_completo}}">{{garcom.nome_completo}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="numero_mesa" class="form-label">Mesa</label>
+                <input required type="number" class="form-control" id="mesa" name="mesa">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Realizar pedido</button>
         </form>
     </main>
 </body>

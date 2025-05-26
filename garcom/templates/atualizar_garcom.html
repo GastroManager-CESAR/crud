@@ -2,42 +2,44 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% load static %}
-  <script src="{% static 'popper/popper.min.js' %}"></script>
-  <script src="{% static 'bootstrap/js/bootstrap.js' %}" defer></script>
-  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-  <script src="{% static 'app.js' %}" defer></script>
-  <title>GastroManager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="{% static 'popper/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'app.js' %}" defer></script>
+    <title>GastroManager</title>
 </head>
 
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">GastroManager</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Garçons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cardápio</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">GastroManager</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/garcom">Garçons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pedidos">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/menu">Cardápio</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main>
         <div class="hero">

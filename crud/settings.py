@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'menu.apps.MenuConfig',
-    'garcom.apps.GarcomConfig'
+    'garcom.apps.GarcomConfig',
+    'pedidos.apps.PedidosConfig'
 ]
 
 MIDDLEWARE = [

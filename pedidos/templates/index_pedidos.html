@@ -25,13 +25,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="/garcom">Garçons</a>
+              <a class="nav-link active"  href="/garcom">Garçons</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/pedidos">Pedidos</a>
+              <a class="nav-link" aria-current="page" href="/pedidos">Pedidos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/menu">Cardápio</a>
+              <a class="nav-link" href="/menu">Cardápio</a>
             </li>
           </ul>
         </div>
@@ -40,28 +40,33 @@
   </header>
 
   <main>
-    {% if item_criado %}
-    <div class="alert alert-success" role="alert">Item criado com sucesso</div>
+    {% if pedido_criado %}
+    <div class="alert alert-success" role="alert">Pedido criado com sucesso</div>
     {% endif %}
-    {% if item_deletado %}
-    <div class="alert alert-danger" role="alert">Item deletado com sucesso</div>
+    {% if pedido_deletado %}
+    <div class="alert alert-danger" role="alert">Pedido deletado com sucesso</div>
     {% endif %}
     <div class="hero">
       <h1>
-        Cardápio
+        Pedidos
       </h1>
-      <a class="btn btn-primary" href="/menu/criar_item">Criar novo item</a>
+      <a class="btn btn-primary" href="/pedidos/criar_pedido">Criar novo pedido</a>
     </div>
 
     <ul class="garcom__wrapper">
-      {% for item in cardapio %}
+      {% for pedido in pedidos %}
       <li class="garcom__item">
         <div>
-          <h3>{{item.titulo}}</h3>
-          <p>{{item.descricao}}</p>
+          <ul style="list-style: none;">
+            <li>Item: {{pedido.item}}</li>
+            <li>Mesa: {{pedido.mesa}}</li>
+            <li>Descrição: {{pedido.descricao}}</li>
+            <li>Garcom: {{pedido.garcom}}</li>
+            <li>Preço: {{pedido.preco}}</li>
+          </ul>
         </div>
         <div>
-          <a href="/menu/atualizar_item/{{item.id}}" data-bs-toggle="tooltip" data-bs-title="Editar item"
+          <a href="/pedidos/atualizar_pedido/{{pedido.id}}" data-bs-toggle="tooltip" data-bs-title="Editar pedido"
             class="btn btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -72,7 +77,7 @@
             </svg>
 
             </button>
-            <a href="/menu/deletar_item/{{item.id}}" data-bs-toggle="tooltip" data-bs-title="Deletar item"
+            <a href="/pedidos/deletar_pedido/{{pedido.id}}" data-bs-toggle="tooltip" data-bs-title="Deletar pedido"
               class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-trash2-icon lucide-trash-2">
@@ -87,7 +92,7 @@
       </li>
 
       {% empty %}
-      <li>Não há itens no cardápio</li>
+      <li>Não há pedidos na lista</li>
       {% endfor %}
     </ul>
 

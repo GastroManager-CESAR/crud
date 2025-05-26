@@ -4,61 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/popper/popper.min.js"></script>
-    <script src="/assets/bootstrap/js/bootstrap.js" defer></script>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/style.css">
-    <script src="/assets/app.js" defer></script>
+    {% load static %}
+    <script src="{% static 'popper/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'app.js' %}" defer></script>
     <title>GastroManager</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">GastroManager</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Garçons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cardápio</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">GastroManager</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/garcom">Garçons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pedidos">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/menu">Cardápio</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main>
         <div class="hero">
             <h1>Atualizar Cardápio</h1>
         </div>
-        <form>
+        <form method="POST" action="/menu/atualizar_item/{{id}}">
             <div class="mb-3">
-                <label for="item_cardapio" class="form-label">Item</label>
-                <input type="text" class="form-control" id="item_cardapio">
+                <label for="nome_item" class="form-label">Nome</label>
+                <input  type="text" name="titulo" class="form-control" id="nome_item">
             </div>
             <div class="mb-3">
-                <label for="descricao_item_cardapio" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="descricao_item_cardapio">
+                <label for="descricao_item" class="form-label">Descrição</label>
+                <input type="text" name="descricao" class="form-control" id="descricao_item">
             </div>
-            <div class="mb-3">
-                <label for="data_adicao_item" class="form-label">Data de adição do item</label>
-                <input type="date" class="form-control" id="data_adicao_item">
-            </div>
-            <div class="mb-3">
-                <label for="valor_item_cardapio" class="form-label">Valor do item</label>
-                <input type="text" class="form-control" id="valor_item_cardapio">
-            </div>
-            <button type="submit" class="btn btn-primary">Atualizar Cardápio</button>
+            <button type="submit" class="btn btn-primary">Criar Item</button>
         </form>
     </main>
 </body>
