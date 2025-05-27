@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">GastroManager</a>
+                <a class="navbar-brand" href="/garcom/templates/index_garcom.html">GastroManager</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
             <div class="mb-3">
                 <label for="garcom" class="form-label">Garçom</label>
                 <select required class="form-select" name="garcom" id="garcom">
-                    {% for garcom in garcons %}
+                    {% for garcom in garcom %}
                     <option value="{{garcom.nome_completo}}">{{garcom.nome_completo}}</option>
                     {% endfor %}
                 </select>
