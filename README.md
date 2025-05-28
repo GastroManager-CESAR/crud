@@ -13,5 +13,5 @@ Django
 ### 2. Entre na pasta e rode
 ```python manage.py migrate```
 
-## 3. Inicie o webserver
+### 3. Inicie o webserver
 ```python manage.py runserver```
