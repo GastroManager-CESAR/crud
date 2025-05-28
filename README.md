@@ -8,10 +8,16 @@ Django
 ## Como configurar
 
 ### 1. Clone o repositório
-```git clone https://github.com/GastroManager-CESAR/crud.git```
+```
+git clone https://github.com/GastroManager-CESAR/crud.git
+```
 
 ### 2. Entre na pasta e rode
-```python manage.py migrate```
+```
+python manage.py migrate
+```
 
 ### 3. Inicie o webserver
-```python manage.py runserver```
+```
+python manage.py runserver
+```
