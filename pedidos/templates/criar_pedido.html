@@ -64,7 +64,7 @@
             <div class="mb-3">
                 <label for="garcom" class="form-label">Garçom</label>
                 <select required class="form-select" name="garcom" id="garcom">
-                    {% for garcom in garcom %}
+                    {% for garcom in garcons %}
                     <option value="{{garcom.nome_completo}}">{{garcom.nome_completo}}</option>
                     {% endfor %}
                 </select>

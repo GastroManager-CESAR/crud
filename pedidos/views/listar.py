@@ -11,8 +11,6 @@ def listar_pedidos(request):
         except Pedido.DoesNotExist:
             lista_pedidos = []
         
-        pedido_criado = request.GET.get("item_criado", None) != None
-        pedido_deletado = request.GET.get("item_deletado", None) != None
         template = loader.get_template("index_pedidos.html")
         context = {
             "pedidos": lista_pedidos
